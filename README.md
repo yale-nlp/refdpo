@@ -13,7 +13,7 @@ Our code base is adapted from the the [open-instruct](https://github.com/allenai
 
 ## Running the code
 
-To run the code, you can use the following command:
+To run the code, you can use the following command (it assumes there are 8 GPUs available):
 
 ```bash
 accelerate launch \
@@ -36,11 +36,32 @@ accelerate launch \
 
 Each argument is explained in the `main.py` file.
 
+To run the training *without* the reference model, you can use the `--ref_free` flag:
+
+```bash
+accelerate launch \
+    --mixed_precision bf16 \
+    --num_machines 1 \
+    --num_processes 8 \
+    --use_deepspeed \
+    --deepspeed_config_file deepspeed.conf \
+    main.py \
+    --cuda \
+    --dataset 'yale-nlp/RefDPO' \
+    --data_split 'mistral' \
+    --epoch 3 \
+    --beta 10.0 \
+    --dpo_weight 1.0 \
+    --ref_free \
+    --model_type 'HuggingFaceH4/mistral-7b-sft-beta' \
+    --insert_eos \
+    -l
+```
+
 ### Code structure
 
 - `main.py`: The main file to run the code.
 - `data_utils.py`: The data processing utilities.
-- `model.py`: The loss functions.
 - `utils.py`: Utility functions.
 - `deepspeed.conf`: The deepspeed configuration file.
 - `dpo_utils.py`: The DPO utilities.
@@ -48,6 +69,23 @@ Each argument is explained in the `main.py` file.
 ### Resource requirements
 
 Our training requires 8 GPUs with 48GB of memory each. We use the `deepspeed` library to distribute the training across multiple GPUs.
+
+
+## Datasets
+
+We have made the datasets used in the paper available on Huggingface's dataset hub: [yale-nlp/RefDPO](https://huggingface.co/datasets/yale-nlp/RefDPO).
+It contains 5 different datasets.
+Each dataset is built upon the [UltraFeedback](https://huggingface.co/datasets/openbmb/UltraFeedback) dataset, specifically its binarized version [ultrafeedback_binarized_cleaned](https://huggingface.co/datasets/allenai/ultrafeedback_binarized_cleaned) converted from [ultrafeedback_binarized](https://huggingface.co/datasets/HuggingFaceH4/ultrafeedback_binarized).
+The datasets contain **pre-computed log-probabilities** of the reference policy/model for the output pairs in the UltraFeedback dataset.
+
+| Dataset | Reference Model | Description | 
+|---------|-----------------|-------------|
+| `mistral` | [HuggingFaceH4/mistral-7b-sft-beta](https://huggingface.co/HuggingFaceH4/mistral-7b-sft-beta) | The log-probabilities are computed using the Mistral-7B-SFT model. |
+| `tulu2` | [allenai/tulu-2-7b](https://huggingface.co/allenai/tulu-2-7b) | The log-probabilities are computed using the Tulu-2-7B model. |
+| `mistral_prior` | [HuggingFaceH4/mistral-7b-sft-beta](https://huggingface.co/HuggingFaceH4/mistral-7b-sft-beta) | The **prior** (unconditional) log-probabilities are computed using the Mistral-7B-SFT model. |
+| `mistralv2` | [mistralai/Mistral-7B-Instruct-v0.2](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2) | The log-probabilities are computed using the Mistral-7B-Instruct-v0.2 model. |
+| `llama3` | [meta-llama/Meta-Llama-3-70B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct) | The log-probabilities are computed using the Meta-Llama-3-70B-Instruct model. |
+
 
 ## Experimental Results
 

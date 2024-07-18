@@ -38,7 +38,7 @@ def base_setting(args):
     args.empty_cache = getattr(args, "empty_cache", False)  # flush cache
 
 
-def test(dataloader, model, args, is_master, vocab_size):
+def test(dataloader, model, args, is_master):
     model.eval()
     batch_cnt = 0
     all_loss = 0
@@ -94,7 +94,6 @@ def run(args):
         torch.backends.cuda.matmul.allow_tf32 = True
     # build tokenizer
     tokenizer = AutoTokenizer.from_pretrained(args.model_type, use_fast=False)
-    vocab_size = len(tokenizer)
     if args.reset_pad_token:  # reset pad token
         tokenizer.pad_token = None
     # add pad token
@@ -262,7 +261,7 @@ def run(args):
                     
 
                 if (all_step_cnt % args.eval_interval == 0 and all_step_cnt > 0 and step_cnt == 0) or (i == len(dataloader) - 1):
-                    result = test(val_dataloader, model, args, is_master, vocab_size)
+                    result = test(val_dataloader, model, args, is_master)
                     overall_loss = result["loss"]
                     overall_loss = accelerator.gather(overall_loss).mean().item()
                     eval_pos_logits = accelerator.gather(result["pos_logits"]).mean().item()
