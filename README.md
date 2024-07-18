@@ -1,5 +1,15 @@
 # RefDPO: Understanding Reference Policies in Direct Preference Optimization
 
+## Quick Links
+
+- [Installation](#installation)
+- [Running the code](#running-the-code)
+- [Datasets](#datasets)
+- [Experimental Results](#experimental-results)
+    - [RQ1: What Is the Optimal KL Constraint Strength for DPO?](#rq1-what-is-the-optimal-kl-constraint-strength-for-dpo)
+    - [RQ2: Is a Reference Policy Necessary for Effective Preference Learning?](#rq2-is-a-reference-policy-necessary-for-effective-preference-learning)
+    - [RQ3: Does DPO Benefit from Stronger Reference Policies?](#rq3-does-dpo-benefit-from-stronger-reference-policies)
+
 ## Installation
 
 Our code base is based on Huggingface's Transformers library, deepspeed, and PyTorch.
