@@ -138,9 +138,9 @@ Below are the optimal checkpoints fine-tuned from [mistral-7b-sft](https://huggi
 
 | Reward Parameterization | HF Checkpoint | AlpacaEval2 LC-Score | $\beta$ |
 |-------|---------------|-----------------| ---- |
-| $\beta\frac{p_\theta(y\|x)}{p_{\mathrm{ref}}(y\|x)}$ (DPO) | [yale-nlp/mistral-7b-dpo-beta-0.01](https://huggingface.co/yale-nlp/mistral-7b-dpo-beta-0.01)   | 16.25 | 0.01 |
-| $\beta p_\theta(y\|x)$ (Posterior Probability) | [yale-nlp/mistral-probability](https://huggingface.co/yale-nlp/mistral-probability)   | 12.84 | 100.0 |
-| $\beta p_\theta(x\|y)$ (Likelihood Function) | [yale-nlp/mistral-likelihood](https://huggingface.co/yale-nlp/mistral-likelihood)   | 13.63 | 0.01 |
+| $\beta \cdot \frac{p_\theta(y\|x)}{p_{\mathrm{ref}}(y\|x)}$ (DPO) | [yale-nlp/mistral-7b-dpo-beta-0.01](https://huggingface.co/yale-nlp/mistral-7b-dpo-beta-0.01)   | 16.25 | 0.01 |
+| $\beta \cdot p_\theta(y\|x)$ (Posterior Probability) | [yale-nlp/mistral-probability](https://huggingface.co/yale-nlp/mistral-probability)   | 12.84 | 100.0 |
+| $\beta \cdot p_\theta(x\|y)$ (Likelihood Function) | [yale-nlp/mistral-likelihood](https://huggingface.co/yale-nlp/mistral-likelihood)   | 13.63 | 0.01 |
 
 ### RQ3: Does DPO Benefit from Stronger Reference Policies?
 
