@@ -9,6 +9,7 @@
     - [RQ1: What Is the Optimal KL Constraint Strength for DPO?](#rq1-what-is-the-optimal-kl-constraint-strength-for-dpo)
     - [RQ2: Is a Reference Policy Necessary for Effective Preference Learning?](#rq2-is-a-reference-policy-necessary-for-effective-preference-learning)
     - [RQ3: Does DPO Benefit from Stronger Reference Policies?](#rq3-does-dpo-benefit-from-stronger-reference-policies)
+- Resource collection on Huggingface: [RefDPO](https://huggingface.co/collections/yale-nlp/refdpo-669987117dd799b55ac5b552)
 
 ## Installation
 
