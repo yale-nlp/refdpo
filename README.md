@@ -1,5 +1,7 @@
 # RefDPO: Understanding Reference Policies in Direct Preference Optimization
 
+The repository contains the training scripts, datasets, and model checkpoints for the paper ["Understanding Reference Policies in Direct Preference Optimization"](https://arxiv.org/abs/2407.13709).
+
 ## Quick Links
 
 - [Installation](#installation)
@@ -127,9 +129,9 @@ The checkpoints are available on Huggingface's model hub. They are evaluated usi
 | $\beta$  | HF Checkpoint | AlpacaEval2 LC-Score |
 |-------|---------------|-----------------|
 | 0.1   |  [yale-nlp/tulu2-7b-dpo-beta-0.1](https://huggingface.co/yale-nlp/tulu2-7b-dpo-beta-0.1)           | 9.38 |
-| 0.05  |   [WIP]           |  9.96 |
+| 0.05  |   [yale-nlp/tulu2-7b-dpo-beta-0.05](https://huggingface.co/yale-nlp/tulu2-7b-dpo-beta-0.05)          |  9.96 |
 | 0.02  |  [yale-nlp/tulu2-7b-dpo-beta-0.02](https://huggingface.co/yale-nlp/tulu2-7b-dpo-beta-0.02)           | **10.46** |
-| 0.01  | [WIP]           | 7.86 |
+| 0.01  | [yale-nlp/tulu2-7b-dpo-beta-0.01](https://huggingface.co/yale-nlp/tulu2-7b-dpo-beta-0.01)           | 7.86 |
 | 0.005 |  [yale-nlp/tulu2-7b-dpo-beta-0.005](https://huggingface.co/yale-nlp/tulu2-7b-dpo-beta-0.005)           | [degenerate] |
 
 
