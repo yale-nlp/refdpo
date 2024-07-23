@@ -183,7 +183,7 @@ Here we use two stronger reference models [Mistral-7B-Instruct-v0.2](https://hug
 | 1.00  | [yale-nlp/tulu2-7b-dpo-mistralv2-7b-beta-1.0](https://huggingface.co/yale-nlp/tulu2-7b-dpo-mistralv2-7b-beta-1.0)         | **7.85**          |
 | 0.10  | [yale-nlp/tulu2-7b-dpo-mistralv2-7b-beta-0.1](https://huggingface.co/yale-nlp/tulu2-7b-dpo-mistralv2-7b-beta-0.1)         | [degenerate]           |
 | 0.01  | [yale-nlp/tulu2-7b-dpo-mistralv2-7b-beta-0.01](https://huggingface.co/yale-nlp/tulu2-7b-dpo-mistralv2-7b-beta-0.01)         | [degenerate]         |
-| 0.005 | [WIP]         | [degenerate]           |
+| 0.005 | [yale-nlp/tulu2-7b-dpo-mistralv2-7b-beta-0.005](https://huggingface.co/yale-nlp/tulu2-7b-dpo-mistralv2-7b-beta-0.005)        | [degenerate]           |
 
 
 #### Checkpoints fine-tuned from [tulu-2-7b](https://huggingface.co/allenai/tulu-2-7b) using [Meta-Llama-3-70B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3-70B-Instruct) as the reference policy.
